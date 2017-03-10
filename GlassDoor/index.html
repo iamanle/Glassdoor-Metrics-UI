@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glassdoor Interaction Metric Comparison</title>
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/typeahead.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row page-header">
+    <a href="" style="text-decoration:none;"><h1 class="text-center" id="heading">Glassdoor Interaction Metrics</h1></a>
+  </div>
+
+  <!--Search section-->
+  <div class="row">
+    <span class="col-md-12">
+      <form name="search-form">
+        <div class="input-group" id="company-search">
+          <span class="input-group-addon hidden-sm hidden-xs">Company:</span>
+          <input type="text" class="form-control typeahead" placeholder="Company name" id="company-name">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+
+        <div class="input-group hidden" id="results-date-filter">
+          <span class="input-group-addon hidden-sm hidden-xs">Date range:</span>
+          <input type="text" name="daterange" class="form-control">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+
+      <div class="alert alert-danger hidden" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Select a company from the drop down
+      </div>
+    </span>
+  </div>
+
+  <!--Company Details-->
+  <div id="companyDetails" class="row">
+    <div class="col-sm-0 col-md-3 hidden-xs"></div>
+
+    <div id="info" class="col-xs-12 col-sm-3 col-md-3">
+      <h3>Company Info:</h3>
+      <div class="details">
+        <h5 class="inline-block">Industry: </h5><span id="industry">Information Technology</span><br>
+        <h5 class="inline-block">Size: </h5><span id="size">10000+ employees</span><br>
+        <h5 class="inline-block">Competitors: </h5><span id="competitors">Google,Amazon.com,Apple</span>
+      </div>
+    </div>
+
+    <div id="prediction" class="col-xs-12 col-sm-3 col-md-4">
+      <h3>Next Month:</h3>
+      <a href="#" data-toggle="tooltip" title="A metrics that tells the difference in user engagement between companies of the same industry."><h5 class="inline-block">Interaction Point: </h5></a>
+      <h2 id="interactionPoint">5</h2><br>
+    </div>
+
+  </div>
+
+
+
+  <!--Show Charts-->
+  <div class="row chart">
+    <div id="overview" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  </div>
+
+  <div class="row chart">
+    <div id="contentChangeMonthly" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  </div>
+
+  <div class="row">
+    <span class="col-md-0"></span>
+    <span class="col-md-12">
+      <div id="results"></div>
+      <div id="company-details"></div>
+    </span>
+    <span class="col-md-0"></span>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="row">
+    <button type="button" id ="surveyButton" class="btn btn-primary btn-lg center-block text-center" data-toggle="modal" data-target="#myModal">
+    Give us a hand :)
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Your feeback is highly appreciated!</h4>
+        </div>
+
+        <div class="modal-body">
+          <iframe src="https://docs.google.com/a/west.cmu.edu/forms/d/13AHZgrCQPVFOGdWLNimJxaiOD-ATz_QH7oV3IcFSlP4/viewform"></iframe>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <div class="row">
+    <!--<div class="col-sm-0 col-md-4 hidden-xs"></div>-->
+
+    <div class="inner text-center">
+      <hr>
+      <p><a href="http://www.andrew.cmu.edu/course/49-781/">CMU Data Analytics</a> - <i>An Le - Spring 2016</i>.</p>
+    </div>
+  </div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/typeahead.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<!-- Required for the daterange picker -->
+<script src="node_modules/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="node_modules/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

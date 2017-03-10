@@ -1,0 +1,17 @@
+{
+  "name": "glassdoor-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node_modules/.bin/httpserver &"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootstrap-daterangepicker": "^2.1.19",
+    "bower": "^1.7.9",
+    "handlebars": "^4.0.5",
+    "httpserver": "^0.2.0",
+    "jquery": "^2.2.3"
+  }
+}
